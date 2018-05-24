@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "392643895437",
+    "firebase_url": "https://tarea6-d5889.firebaseio.com",
+    "project_id": "tarea6-d5889",
+    "storage_bucket": "tarea6-d5889.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392643895437:android:9dfb5b0d74859002",
+        "android_client_info": {
+          "package_name": "com.example.alexandramolina.tarea6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392643895437-sfk6natsmfp9u4oa601v409gtml2pfpp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alexandramolina.tarea6",
+            "certificate_hash": "fa1a2ceff956425454c69e7fbc2fff6648f51c28"
+          }
+        },
+        {
+          "client_id": "392643895437-su3ulmera71r148an611u7lqgede53ff.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "392643895437-su3ulmera71r148an611u7lqgede53ff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLYP5hDypQhmnQByw4jr-U2I4PMOpg8uQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392643895437-su3ulmera71r148an611u7lqgede53ff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
