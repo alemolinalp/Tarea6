@@ -70,12 +70,16 @@ public class InventarioActivity extends AppCompatActivity {
                 addItem();
                 StorageReference filePath = mStorage.child("fotos").child(id);
 
-                filePath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(InventarioActivity.this, "Foto guardada", Toast.LENGTH_LONG).show();
-                    }
-                });
+                if(imageUri != null) {
+
+                    filePath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(InventarioActivity.this, "Foto guardada", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+
             }
         });
 
