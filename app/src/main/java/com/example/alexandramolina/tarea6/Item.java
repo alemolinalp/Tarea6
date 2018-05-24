@@ -11,17 +11,17 @@ public class Item {
     String itemName;
     String itemPrice;
     String itemDes;
-    //ImageView itemPic;
+    String itemPic;
 
     public Item(){
 
     }
 
-    public Item(String itemName, String itemPrice, String itemDes) {
+    public Item(String itemName, String itemPrice, String itemDes, String itemPic) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemDes = itemDes;
-        //this.itemPic = itemPic;
+        this.itemPic = itemPic;
     }
 
     public String getItemName() {
@@ -48,11 +48,11 @@ public class Item {
         this.itemDes = itemDes;
     }
 
-    /*public ImageView getItemPic() {
+    public String getItemPic() {
         return itemPic;
     }
 
-    public void setItemPic(ImageView itemPic) {
+    public void setItemPic(String itemPic) {
         this.itemPic = itemPic;
-    }*/
+    }
 }

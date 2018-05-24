@@ -52,7 +52,7 @@ public class InventarioActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("items");
-        mStorage = FirebaseStorage.getInstance().getReference();
+        mStorage = FirebaseStorage.getInstance().getReference("items");
 
         nombre = findViewById(R.id.editText);
         precio = findViewById(R.id.editText2);
@@ -67,8 +67,7 @@ public class InventarioActivity extends AppCompatActivity {
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addItem();
-                StorageReference filePath = mStorage.child("fotos").child(id);
+                StorageReference filePath = mStorage.child("fotos").child(System.currentTimeMillis() + ".jpg");
 
                 if(imageUri != null) {
 
@@ -76,8 +75,12 @@ public class InventarioActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Toast.makeText(InventarioActivity.this, "Foto guardada", Toast.LENGTH_LONG).show();
+                            addItem(taskSnapshot.getDownloadUrl().toString());
                         }
                     });
+                }
+                else{
+                    addItem("");
                 }
 
             }
@@ -99,7 +102,7 @@ public class InventarioActivity extends AppCompatActivity {
 
     }
 
-    private void addItem(){
+    private void addItem(String taskSnapshot){
         String name = nombre.getText().toString();
         String price = precio.getText().toString();
         String description = descripcion.getText().toString();
@@ -109,7 +112,7 @@ public class InventarioActivity extends AppCompatActivity {
         if(!TextUtils.isEmpty(name)){
             id = myRef.push().getKey();
 
-            Item item = new Item(name,price,description);
+            Item item = new Item(name,price,description,taskSnapshot);
 
             myRef.child(id).setValue(item);
 
@@ -124,6 +127,7 @@ public class InventarioActivity extends AppCompatActivity {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery,PICK_IMAGE);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);

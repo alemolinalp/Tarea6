@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -59,7 +61,7 @@ public class itemAdapter extends BaseAdapter{
             viewHolder.txt_name = view.findViewById(R.id.list_name);
             viewHolder.txt_price = view.findViewById(R.id.list_price);
             viewHolder.txt_description = view.findViewById(R.id.list_des);
-            //viewHolder.imageView = view.findViewById(R.id.imageView2);
+            viewHolder.imageView = view.findViewById(R.id.imageView2);
             view.setTag(viewHolder);
         }
         else{
@@ -70,7 +72,8 @@ public class itemAdapter extends BaseAdapter{
         viewHolder.txt_name.setText(item.getItemName());
         viewHolder.txt_price.setText(item.getItemPrice());
         viewHolder.txt_description.setText(item.getItemDes());
-        //viewHolder.imageView.setImageBitmap(item.getItemImage());
+        //viewHolder.imageView.setImageBitmap(item.getItemPic());
+        Picasso.with(context).load(item.getItemPic()).into(viewHolder.imageView);
 
         return view;
     }
